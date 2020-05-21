@@ -1,0 +1,50 @@
+*{
+	margin:0;
+	padding: 0;
+}
+.postcard2{
+
+	border: 5px solid green;
+	margin: 300px;
+	padding: 20px; 
+
+}
+.information{
+	display: flex;
+	flex-direction: column;
+	padding-left: 100px;
+	padding-top: 40px;
+}
+.imagetxt{
+	display: flex;
+	flex-direction: row;
+}
+.inputs{
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+}
+.inputstxt{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	margin-top: 20px;
+}
+.buttons{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 30px;
+}
+.image{
+	display: flex;
+	flex-direction: column;
+	width: 350px;
+}
+
+.btn{
+	background-color: lightgreen;
+	border:1px solid black;
+	height: 25px;
+	width: 50px;
+}

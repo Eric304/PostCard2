@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="Postcard.css">
+</head>
+<body>
+	<div id="root"></div>
+	<script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+	<script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+	<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>	
+	<script type="text/babel">
+		const rootElement=document.getElementById('root'); 
+		
+
+		const Postcard2=(props)=>{
+			
+			const[totxt, setTotxt]=React.useState('');
+
+			const[msgtxt, setMsgtxt]=React.useState('');
+
+			const[clic, setClic]=React.useState('');
+
+				function click() {
+					window.alert(`Sending to:  ${totxt}`)
+				}
+
+				function handleChange(event){
+					setTotxt(event.target.value);
+				}
+
+				function handleChange1(event){
+					setMsgtxt(event.target.value);
+				}
+
+				const{
+					colorBg,
+					font
+				}=props;
+
+				const colorBgStyle={backgroundColor:colorBg};
+				const fontStyle={fontStyle:font};
+
+			return(
+				<div className={`postcard2`} style={{...fontStyle, ...colorBgStyle}}
+				>
+					<div className='imagetxt'>
+						<div className='image'>
+							<img src="paisaje.jpeg"/>
+							<figcaption>Entrada a Teotihuacán</figcaption>
+						</div>
+						<div className='information'>
+							<p>To: {totxt} </p>
+							<p>From: Eric Sánchez </p>
+							<p>Message:{msgtxt} </p>
+						</div>
+					</div>
+					
+					<div className='inputs'>
+						<p>Ingresa los siguientes datos</p>
+						<div className='inputstxt'>
+							<p>To: </p>
+							<input 
+							onChange={handleChange}
+							 />
+							<p>Message: </p><input
+							onChange={handleChange1}
+							/>
+						</div>
+					</div>
+					<div className='buttons'>
+						<button className='btn'
+							onClick={click}
+						>Send</button>
+					</div>
+
+				</div>
+			)
+		};
+
+		Postcard2.propTypes={
+			colorBg: PropTypes.string.isRequired,
+			font: PropTypes.string.isRequired
+		}
+
+		const app=(
+			<>
+				<Postcard2
+					colorBg="orange"
+					font="italic"
+				>
+				</Postcard2>
+			</>
+		);
+
+		ReactDOM.render(app, rootElement);
+
+	</script>
+</body>
+</html>
